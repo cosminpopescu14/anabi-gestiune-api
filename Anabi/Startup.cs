@@ -111,6 +111,7 @@ namespace Anabi
             services.AddSwaggerGen((c) =>
             {
                 c.SwaggerDoc("v1", new Info() { Title = "ANABI", Version = "v1" });
+                c.SchemaFilter<AddFluentValidationRules>();
 
                 var basePath = AppContext.BaseDirectory;
                 var xmlPath = Path.Combine(basePath, "Anabi.xml");
@@ -185,6 +186,7 @@ namespace Anabi
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "ANABI API V1");
+                
                 
             });
         }
