@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabi", "Anabi\Anabi.csproj", "{53B03776-32A0-47F3-9B1B-E18D3DD433A0}"
 EndProject
@@ -20,11 +20,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnabiControllers.Tests", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabi.Common", "Anabi.Common\Anabi.Common.csproj", "{52170705-98A5-4341-B8C6-434C68EF561F}"
 EndProject
-
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anabi.Security", "Anabi.Security\Anabi.Security.csproj", "{739524E9-96A3-462E-9C15-330C50B55B34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabi.Security", "Anabi.Security\Anabi.Security.csproj", "{739524E9-96A3-462E-9C15-330C50B55B34}"
 EndProject
-
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anabi.Domain.Tests", "Anabi.Domain.Tests\Anabi.Domain.Tests.csproj", "{6535EED6-8A0C-480A-A727-5822364A2C14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anabi.Domain.Tests", "Anabi.Domain.Tests\Anabi.Domain.Tests.csproj", "{6535EED6-8A0C-480A-A727-5822364A2C14}"
+EndProject
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "Anabi.CloudInfrastructure", "Anabi.CloudInfrastructure\Anabi.CloudInfrastructure.deployproj", "{4FBA984B-AE04-4057-8923-3CD4854B13F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,17 +51,18 @@ Global
 		{52170705-98A5-4341-B8C6-434C68EF561F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52170705-98A5-4341-B8C6-434C68EF561F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52170705-98A5-4341-B8C6-434C68EF561F}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{739524E9-96A3-462E-9C15-330C50B55B34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{739524E9-96A3-462E-9C15-330C50B55B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{739524E9-96A3-462E-9C15-330C50B55B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{739524E9-96A3-462E-9C15-330C50B55B34}.Release|Any CPU.Build.0 = Release|Any CPU
-
 		{6535EED6-8A0C-480A-A727-5822364A2C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6535EED6-8A0C-480A-A727-5822364A2C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6535EED6-8A0C-480A-A727-5822364A2C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6535EED6-8A0C-480A-A727-5822364A2C14}.Release|Any CPU.Build.0 = Release|Any CPU
-
+		{4FBA984B-AE04-4057-8923-3CD4854B13F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FBA984B-AE04-4057-8923-3CD4854B13F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FBA984B-AE04-4057-8923-3CD4854B13F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FBA984B-AE04-4057-8923-3CD4854B13F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +72,7 @@ Global
 		{8C62A47E-E356-439D-9EBE-DBFEAFFF510A} = {05C188CA-CA1B-4A4A-986E-72611FFAE255}
 		{52170705-98A5-4341-B8C6-434C68EF561F} = {541F5C19-735D-4D0D-87CB-19A9E563CB27}
 		{739524E9-96A3-462E-9C15-330C50B55B34} = {541F5C19-735D-4D0D-87CB-19A9E563CB27}
+		{4FBA984B-AE04-4057-8923-3CD4854B13F7} = {541F5C19-735D-4D0D-87CB-19A9E563CB27}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCF896A4-DBE2-48C4-B043-00DC8E06CD2A}
