@@ -494,58 +494,6 @@
       "properties": {
         "securityRules": [
           {
-            "name": "MS_SQL",
-            "properties": {
-              "priority": 100,
-              "protocol": "TCP",
-              "access": "Allow",
-              "direction": "Inbound",
-              "sourceAddressPrefix": "*",
-              "sourcePortRange": "*",
-              "destinationAddressPrefix": "*",
-              "destinationPortRange": "1433"
-            }
-          },
-          {
-            "name": "HTTP",
-            "properties": {
-              "priority": 110,
-              "protocol": "TCP",
-              "access": "Allow",
-              "direction": "Inbound",
-              "sourceAddressPrefix": "*",
-              "sourcePortRange": "*",
-              "destinationAddressPrefix": "*",
-              "destinationPortRange": "80"
-            }
-          },
-          {
-            "name": "FTP",
-            "properties": {
-              "priority": 120,
-              "protocol": "TCP",
-              "access": "Allow",
-              "direction": "Inbound",
-              "sourceAddressPrefix": "*",
-              "sourcePortRange": "*",
-              "destinationAddressPrefix": "*",
-              "destinationPortRange": "21"
-            }
-          },
-          {
-            "name": "WinRM",
-            "properties": {
-              "priority": 130,
-              "protocol": "TCP",
-              "access": "Allow",
-              "direction": "Inbound",
-              "sourceAddressPrefix": "*",
-              "sourcePortRange": "*",
-              "destinationAddressPrefix": "*",
-              "destinationPortRange": "5986"
-            }
-          },
-          {
             "name": "default-allow-rdp",
             "properties": {
               "priority": 1000,

@@ -22,13 +22,19 @@ namespace Anabi.Features.Assets
             mediator = _mediator;
         }
 
-
+        /// <summary>
+        /// Returns a list of assets
+        /// </summary>
+        /// <response code="200">The list of assets</response>
+        /// <param name="filter">Empty parameter</param>
+        /// <returns>The list of assets</returns>
+        [ProducesResponseType(typeof(IEnumerable<AssetSummary>), StatusCodes.Status200OK)]
         [HttpGet]
-        public async Task<IEnumerable<AssetSummary>> Get(SearchAsset filter)
+        public async Task<IActionResult> Get()
         {
-            var results = await mediator.Send(filter);
+            var results = await mediator.Send(new SearchAsset());
 
-            return results;
+            return Ok(results);
         }
 
 
@@ -64,15 +70,10 @@ namespace Anabi.Features.Assets
         /// NAME_NOT_EMPTY
         /// NAME_MAX_LENGTH_100 
         /// IDENTIFIER_MAX_LENGTH_100
-        /// IDENTIFIER_NOT_EMPTY
         /// INVALID_CATEGORY_ID -- if CategoryId lower than or equal to zero, or the category does not exist
-        /// USERCODE_NOT_EMPTY (for test use pop)
-        /// USERCODE_MAX_LENGTH_20 -- if the user code is over 20 characters long
         /// INVALID_STAGE_ID -- if StageId lower than or equal to zero, or the stage id does not exist
         /// MEASUREUNIT_MAX_LENGTH_10 -- measure unit max 10 characters
-        /// QUANTITY_MUST_BE_GREATER_THAN_ZERO -- quantity must be gt zero
-        /// ESTIMATED_AMOUNT_GREATER_THAN_ZERO -- estimated amount must be gt zero
-        /// ESTIMATED_AMT_CURRENCY_THREE_CHARS -- currency must have 3 characters (USD, RON, EUR)
+        /// ESTIMATED_AMT_CURRENCY_THREE_CHARS -- currency must have 3 characters (if not empty) (USD, RON, EUR)
         /// </para>
         /// </remarks>
         /// <response code="201">The id of the new asset</response>
