@@ -46,7 +46,6 @@
     "vhdStorageType": "Standard_LRS",
     "publicIPAddressName": "myPublicIP",
     "publicIPAddressType": "Dynamic",
-    "networkSecurityGroupName": "vmnsg",
     "vhdStorageContainerName": "vhds",
     "vmName": "MyWindowsVM",
     "vmSize": "Standard_A2",
@@ -485,30 +484,6 @@
           }
         }
       ]
-    },
-    {
-      "apiVersion": "2017-06-01",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[variables('networkSecurityGroupName')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "securityRules": [
-          {
-            "name": "default-allow-rdp",
-            "properties": {
-              "priority": 1000,
-              "protocol": "TCP",
-              "access": "Allow",
-              "direction": "Inbound",
-              "sourceAddressPrefix": "*",
-              "sourcePortRange": "*",
-              "destinationAddressPrefix": "*",
-              "destinationPortRange": "3389"
-            }
-          }
-        ]
-      }
-
     }
   ]
 }
