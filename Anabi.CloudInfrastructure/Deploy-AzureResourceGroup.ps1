@@ -1,7 +1,7 @@
 #Requires -Version 3.0
 
 Param(
-    [string] [Parameter(Mandatory=$true)] $ResourceGroupLocation,
+    [string] $ResourceGroupLocation = 'West Europe',
     [string] $ResourceGroupName = 'AnabiVM-rg',
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
