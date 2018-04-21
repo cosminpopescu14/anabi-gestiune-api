@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "---"
+      "value": null
     },
     "dnsNameForPublicIP": {
-      "value": "anabivm2008"
+      "value": null
     },
     "adminPassword": {
-        "value": "---"
+        "value": null
       }
   }
 }
