@@ -24,7 +24,7 @@ namespace Anabi
         public AutoMapperMappings()
         {
             CreateMap<Address, AddressDb>().ReverseMap();
-            CreateMap<Anabi.Domain.Models.Address, AddressDb>().ReverseMap();
+            CreateMap<Domain.Models.Address, AddressDb>().ReverseMap();
             
 
             CreateMap<Category, CategoryDb>().ReverseMap();
@@ -52,7 +52,7 @@ namespace Anabi
             CreateMap<StorageSpace, StorageSpaceDb>().ReverseMap();
             CreateMap<StorageSpace, StorageSpaceViewModel>().ReverseMap();
 
-            CreateMap<Anabi.Domain.Models.StorageSpace, StorageSpaceDb>().ReverseMap();
+            CreateMap<Domain.Models.StorageSpace, StorageSpaceDb>().ReverseMap();
 
             CreateMap<StorageSpaceViewModel, StorageSpaceDb>().ReverseMap();
 
@@ -84,6 +84,9 @@ namespace Anabi
             CreateMap<SequesterDetails, SequesterDetailsViewModel>();
             CreateMap<ConfiscationDetails, ConfiscationDetailsViewModel>();
             CreateMap<AddAssetStorageSpace, AssetStorageSpaceViewModel>();
+
+            CreateMap<MinimalAddressViewModel, AddressDb>();
+            CreateMap<IAddAddressMinimal, MinimalAddressViewModel>();
         }
     }
 }

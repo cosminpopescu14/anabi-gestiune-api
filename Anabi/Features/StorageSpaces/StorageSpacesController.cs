@@ -111,7 +111,6 @@ namespace Anabi.Features.StorageSpaces
 
         }
 
-
         /// <summary>
         /// Returns the storage space for the supplied id
         /// </summary>

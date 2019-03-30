@@ -14,7 +14,6 @@ namespace Anabi.Features.StorageSpaces.Models
 
         public string Name { get; set; }
         
-
         public decimal? TotalVolume { get; set; }
 
         public decimal? AvailableVolume { get; set; }

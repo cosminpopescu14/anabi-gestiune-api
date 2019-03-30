@@ -7,7 +7,7 @@ using MediatR;
 
 namespace Anabi.Domain.StorageSpaces.Commands
 {
-    public class EditStorageSpace : IAddAddress, IRequest<StorageSpace>
+    public class EditStorageSpace : IAddAddress, IRequest<StorageSpace>, IAddAddressMinimal
     {
 
         public int Id { get; set; }

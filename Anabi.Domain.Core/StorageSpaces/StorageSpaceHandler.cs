@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Anabi.Common.Exceptions;
 using Anabi.Common.Utils;
+using Anabi.Common.ViewModels;
 using Anabi.DataAccess.Ef.DbModels;
 using Anabi.Domain.Common.Address;
 using Anabi.Domain.Models;
@@ -22,6 +23,7 @@ namespace Anabi.Domain.StorageSpaces
         {
         }
 
+        /*Handles adding of new storage spaces without address*/
         public async Task<int> Handle(AddStorageSpace message, CancellationToken cancellationToken)
         {
             var newStorageSpace = new StorageSpaceDb();
@@ -38,6 +40,7 @@ namespace Anabi.Domain.StorageSpaces
 
         }
 
+        /*Handles editing of storage spaces*/
         public async Task<StorageSpace> Handle(EditStorageSpace message, CancellationToken cancellationToken)
         {
 
@@ -59,6 +62,7 @@ namespace Anabi.Domain.StorageSpaces
 
         }
 
+        /*Handles deleting of a storage spaces*/
         public async Task<Unit> Handle(DeleteStorageSpace message, CancellationToken cancellationToken)
         {
             var command = context.StorageSpaces.Where(m => m.Id == message.Id).AsQueryable()
@@ -81,9 +85,12 @@ namespace Anabi.Domain.StorageSpaces
             }
         }
 
-        private async Task SetNewAddressToStorageSpace(IAddAddress message, StorageSpaceDb storageSpace)
+        /*Setting a new address to storage spaces*/
+        private async Task SetNewAddressToStorageSpace(IAddAddressMinimal message, StorageSpaceDb storageSpace)
         {
             AddressDb address;
+
+
             if (storageSpace.AddressId > 0)
             {
                 address = await this.context.Addresses.FindAsync(storageSpace.AddressId);
@@ -91,7 +98,7 @@ namespace Anabi.Domain.StorageSpaces
             }
             else
             {
-                address = this.mapper.Map<IAddAddress, AddressDb>(message);
+                address = this.mapper.Map<IAddAddressMinimal, AddressDb>(message);
             }
 
             var countyCode = message.CountyCode.ToUpperInvariant();

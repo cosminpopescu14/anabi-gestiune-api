@@ -6,6 +6,16 @@ namespace Anabi.DataAccess.Ef.DbModels
 {
     public class StorageSpaceDb
     {
+        public enum StorageSpaceType
+        {
+            Contracted,
+            NonContracted,
+            ThirdParties, //terti
+            Defendant,
+            Institution,
+            PrivateAgent //agent privat
+        }
+
         public int Id { get; set; }
 
         public int AddressId { get; set; }

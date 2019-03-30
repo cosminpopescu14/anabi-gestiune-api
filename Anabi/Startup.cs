@@ -120,7 +120,7 @@ namespace Anabi
             MapInterfacesAndClasses(services);
 
             services.AddAutoMapper(typeof(Startup), typeof(BaseHandler));
-
+            InitializeAutoMapper();
             services.AddMediatR(typeof(Startup), typeof(BaseHandler), typeof(PasswordHashHandler));
         }
 
@@ -141,6 +141,13 @@ namespace Anabi
             });
         }
 
+        public static void InitializeAutoMapper()
+        {
+            Mapper.Initialize(x =>
+                x.AddProfile<AutoMapperMappings>()
+                );
+        }
+
         private void MapInterfacesAndClasses(IServiceCollection services)
         {
             services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
@@ -150,7 +157,9 @@ namespace Anabi
             services.AddScoped<AbstractValidator<IAddAddress>, AddAddressValidator>(); ;
             services.AddScoped<IDatabaseChecks, DatabaseChecks>();
             services.AddScoped<IAssetValidator, AssetValidator>();
-            
+
+            services.AddScoped<EmptyAddMinimalAddressValidator, EmptyAddMinimalAddressValidator>();
+            services.AddScoped<AbstractValidator<IAddAddressMinimal>, AddMinimalAddressValidator>();    
         }
 
         private void AddDbContext(IServiceCollection services)

@@ -7,11 +7,8 @@ using MediatR;
 
 namespace Anabi.Domain.StorageSpaces.Commands
 {
-    public class AddStorageSpace : IAddAddress, IRequest<int>
+    public class AddStorageSpace : IAddAddressMinimal, IRequest<int>, IAddAddress
     {
-        
-       
-
         public string Name { get; set; }
 
 
@@ -41,6 +38,7 @@ namespace Anabi.Domain.StorageSpaces.Commands
         public string City { get; set; }
         public string Street { get; set; }
         public string Building { get; set; }
+        //public string Building { get; set; }
         public string Stair { get; set; }
         public string Floor { get; set; }
         public string FlatNo { get; set; }
@@ -48,13 +46,15 @@ namespace Anabi.Domain.StorageSpaces.Commands
 
     public class AddStorageSpaceValidator : AbstractValidator<AddStorageSpace>
     {
-        public AddStorageSpaceValidator(IDatabaseChecks checks, AbstractValidator<IAddAddress> addAddressValidator)
+        public AddStorageSpaceValidator(IDatabaseChecks checks, AbstractValidator<IAddAddressMinimal> addAddressValidator)
         {
             RuleFor(c => c.Name).NotEmpty().WithMessage(Constants.NAME_NOT_EMPTY);
             RuleFor(c => c.Name).MaximumLength(200).WithMessage(Constants.NAME_MAX_LENGTH_100);
 
-            RuleFor(c => c.ContactData).MaximumLength(1000).WithMessage(Constants.CONTACTDATA_MAX_LENGTH_1000);
-            RuleFor(c => c.Description).MaximumLength(2000).WithMessage(Constants.DESCRIPTION_MAX_LENGTH_2000);
+            RuleFor(c => c.CountyCode).NotEmpty().WithMessage(Constants.NAME_NOT_EMPTY);
+            RuleFor(c => c.CountyCode).MaximumLength(200).WithMessage(Constants.NAME_MAX_LENGTH_100);
+            //RuleFor(c => c.ContactData).MaximumLength(1000).WithMessage(Constants.CONTACTDATA_MAX_LENGTH_1000);
+            //RuleFor(c => c.Description).MaximumLength(2000).WithMessage(Constants.DESCRIPTION_MAX_LENGTH_2000);
 
             RuleFor(m => m).SetValidator(addAddressValidator); 
         }
