@@ -24,6 +24,8 @@ namespace Anabi.DataAccess.Ef.DbModels
 
         public string Name { get; set; }
 
+        public StorageSpaceType StorageSpacesType { get; set; }
+
         public virtual ICollection<AssetStorageSpaceDb> AssetsStorageSpaces { get; set; }
 
         public decimal? TotalVolume { get; set; }
