@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Anabi.DataAccess.Ef.DbModels;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System;
 
 namespace Anabi.DataAccess.Ef.EntityConfigurators
 {
@@ -13,6 +14,9 @@ namespace Anabi.DataAccess.Ef.EntityConfigurators
 
             entity.HasKey(k => k.Id);
             entity.Property(p => p.Name).HasMaxLength(200).IsRequired();
+            entity.Property(p => p.StorageSpacesType)
+                .HasConversion(c => c.ToString(),
+                    c => (StorageSpaceDb.StorageSpaceType)Enum.Parse(typeof(StorageSpaceDb.StorageSpaceType), c));
 
             entity.HasIndex(i => i.Name).IsUnique();
 
